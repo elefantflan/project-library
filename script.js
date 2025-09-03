@@ -18,9 +18,7 @@ function Book(title, author, page) {
 }
 
 function addBookToLibrary() {
-    // new book object gets pushed to array
-    myBooks.push(newBook.info());
-    console.log(myBooks);
+    // displays array as shelf
 }
 
 const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1000");
@@ -46,7 +44,8 @@ let inputBook = addBook.addEventListener("click",(title, author, page)=>{
     deleteBook.textContent='remove';
     div.appendChild(deleteBook);
 
-    addBookToLibrary();
+    myBooks.push(newBook.info());
+    console.log(myBooks);
 })
 
 
