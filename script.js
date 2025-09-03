@@ -3,10 +3,6 @@ const shelf = document.querySelector('.shelf');
 const addBook = document.querySelector('.new');
 const deleteBook = document.querySelector('.delete');
 
-const testDiv = document.createElement("div");
-testDiv.textContent = "A New Book!";
-shelf.appendChild(testDiv);
-
 const myBooks = [
     // new Book objects
 ];
@@ -21,14 +17,16 @@ function Book(title, author, page) {
     }
 }
 
-function addBookToLibrary(book) {
-    Book.call(this, title, author, page);
+function addBookToLibrary() {
     // new book object gets pushed to array
-    myBooks.push(book)
+    myBooks.push(newBook.info());
+    console.log(myBooks);
 }
 
 const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1000");
-shelf.textContent = monteCristo.info();
+const example = document.createElement('div');
+shelf.appendChild(example);
+example.textContent = monteCristo.info();
 
 let inputBook = addBook.addEventListener("click",(title, author, page)=>{
     this.title=prompt("Title");
@@ -43,5 +41,24 @@ let inputBook = addBook.addEventListener("click",(title, author, page)=>{
     let div=document.createElement('div');
     div.textContent = newBook.info();
     shelf.appendChild(div);
-    
+
+    let deleteBook=document.createElement('button');
+    deleteBook.textContent='remove';
+    div.appendChild(deleteBook);
+
+    addBookToLibrary();
 })
+
+
+
+// practice
+function Item (name, age){
+    this.name=name;
+    this.age=age;
+    this.info=function(){
+        return `This ${this.name} is\n${this.age} years old`
+    }
+}
+
+const corn = new Item("canned corn", 6);
+console.log(corn.info());
