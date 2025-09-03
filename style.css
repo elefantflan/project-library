@@ -1,6 +1,14 @@
 .shelf{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: repeat(auto-fit,1fr);
+
     width: 50vw;
     height: 70vh;
     border: 2px solid #cccccc;
+    padding:10px;
     margin-bottom:20px;
+}
+.shelf>div{
+    border:2px solid #cccccc;
 }

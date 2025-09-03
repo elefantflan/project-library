@@ -3,26 +3,45 @@ const shelf = document.querySelector('.shelf');
 const addBook = document.querySelector('.new');
 const deleteBook = document.querySelector('.delete');
 
-const myBooks = ['monte', 'jane', 'hobbit'];
+const testDiv = document.createElement("div");
+testDiv.textContent = "A New Book!";
+shelf.appendChild(testDiv);
 
-myBooks.forEach(item=>{
-    const newBook = document.createElement("div");
-    newBook.textcontent = item;
-    shelf.appendChild(newBook);
-});
+const myBooks = [
+    // new Book objects
+];
 
-function Book(title, author, page, read, id) {
+function Book(title, author, page) {
     this.title=title;
     this.author=author;
     this.page=page;
-    this.read=read;
-    this.id=id;
+
+    this.info=function(){
+        return `Title: ${this.title} ` + `Author: ${this.author} ` + `Page: ${this.page}`;
+    }
 }
 
-
-function addBookToLibrary() {
+function addBookToLibrary(book) {
+    Book.call(this, title, author, page);
     // new book object gets pushed to array
+    myBooks.push(book)
 }
 
-const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1200", "read", "placeholder-ID")
-console.log(monteCristo);
+const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1000");
+shelf.textContent = monteCristo.info();
+
+let inputBook = addBook.addEventListener("click",(title, author, page)=>{
+    this.title=prompt("Title");
+    this.author=prompt("Author");
+    this.page=prompt("Pages");
+
+    this.newBook = new Book(this.title, this.author, this.page);
+    this.info = function(){
+        return `Title: ${this.title} ` + `Author: ${this.author} ` + `Page: ${this.page}`;
+    }
+
+    let div=document.createElement('div');
+    div.textContent = newBook.info();
+    shelf.appendChild(div);
+    
+})
