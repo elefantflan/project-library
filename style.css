@@ -4,6 +4,7 @@
     grid-auto-rows: repeat(auto-fit,1fr);
     grid-gap:10px;
 
+    min-width:200px;
     width: 50vw;
     height: 70vh;
     border: 2px solid #cccccc;
@@ -13,4 +14,5 @@
 .shelf>div{
     border:2px solid #cccccc;
     padding:10px;
+    white-space: pre-line;
 }
