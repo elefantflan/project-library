@@ -71,7 +71,7 @@ function addNewBooks(){
     newBook.append(bookInfo);
     newBook.append(btnRemove);
 }
-console.log(btnIDs);
+
 
 function addForm(name, writer, pg){
 
