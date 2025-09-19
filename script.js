@@ -1,33 +1,45 @@
 const library = document.querySelector('.library');
 const shelf = document.querySelector('.shelf');
 const addBook = document.querySelector('.new');
+const deleteBook = document.querySelector('.delete');
 
 const myBooks = [];
 
+<<<<<<< HEAD
 function Book(title, author, page, id) {
+=======
+function Book(title, author, page) {
+>>>>>>> parent of dacf8a3 (sex)
     this.title=title;
     this.author=author;
     this.page=page;
     this.id=id;
 
     this.info=function(){
-        return `Title: ${this.title}\n` + `Author: ${this.author}\n` + `Pages: ${this.page}\n`;
+        return `Title: ${this.title} ` + `Author: ${this.author} ` + `Page: ${this.page}`;
     }
 }
 
-const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1000");
-const janeEyre = new Book('Jane Eyre', 'Charlotte Bronte', '500');
-const orlando = new Book('Orlando', 'Virginia Woolfe', '450');
-
-myBooks.push(monteCristo, janeEyre, orlando)
-console.log(myBooks)
-
-//add example books to library
-function addExampleBooks() {
+function addBookToLibrary() {
     // displays array as shelf
-    for(i=0;i<myBooks.length;i++){
-        const uniqueID=crypto.randomUUID();
+}
 
+const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1000");
+const example = document.createElement('div');
+shelf.appendChild(example);
+example.textContent = monteCristo.info();
+
+let inputBook = addBook.addEventListener("click",(title, author, page)=>{
+    this.title=prompt("Title");
+    this.author=prompt("Author");
+    this.page=prompt("Pages");
+
+    this.newBook = new Book(this.title, this.author, this.page);
+    this.info = function(){
+        return `Title: ${this.title} ` + `Author: ${this.author} ` + `Page: ${this.page}`;
+    }
+
+<<<<<<< HEAD
         const newDiv=document.createElement('div');
         newDiv.className="book";
         newDiv.dataset.id=uniqueID;
@@ -141,3 +153,30 @@ console.log(titleList)
 const authorList =myBooks.map(book=>book.author);
 console.log(authorList)
 const appendID = myBooks.forEach(book=>book.id );
+=======
+    let div=document.createElement('div');
+    div.textContent = newBook.info();
+    shelf.appendChild(div);
+
+    let deleteBook=document.createElement('button');
+    deleteBook.textContent='remove';
+    div.appendChild(deleteBook);
+
+    myBooks.push(newBook.info());
+    console.log(myBooks);
+})
+
+
+
+// practice
+function Item (name, age){
+    this.name=name;
+    this.age=age;
+    this.info=function(){
+        return `This ${this.name} is\n${this.age} years old`
+    }
+}
+
+const corn = new Item("canned corn", 6);
+console.log(corn.info());
+>>>>>>> parent of dacf8a3 (sex)
