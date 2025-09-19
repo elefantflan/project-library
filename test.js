@@ -10,10 +10,10 @@ function Book(title, author, page,id) {
     this.author=author;
     this.page=page;
     this.id=id;
+}
 
-    this.info=function(){
-        return `Title: ${this.title}\n` + `Author: ${this.author}\n` + `Pages: ${this.page}\n`;
-    }
+Book.prototype.info=function(){
+    return `Title: ${this.title}\n` + `Author: ${this.author}\n` + `Pages: ${this.page}\n`;
 }
 
 const monteCristo = new Book("The Count of Monte Cristo", "Alexandre Dumas", "1000", crypto.randomUUID());
@@ -23,16 +23,51 @@ const orlando = new Book('Orlando', 'Virginia Woolfe', '450',crypto.randomUUID()
 myBooks.push(monteCristo, janeEyre, orlando)
 console.log(myBooks)
 
+function addExampleBooks(){
+    for(i=0;i<myBooks.length;i++){
+        const div = document.createElement('div');
+        const btn = document.createElement('button')
+        
+        div.className='.book'
+
+        btn.className='.rmv';
+        btn.textContent='-';
+        
+        const info = myBooks[i].info();
+        
+        div.append(info);
+
+        shelf.append(div);
+        div.append(btn);
+    }
+}
+
+addExampleBooks();
+
 //add new books
 
 function addNewBooks(){
     const bookInfo = addForm();
 
-    const newBook=document.createElement('div');
-    shelf.append(newBook);
+    const last=myBooks[myBooks.length-1];
 
-    newBook.append(bookInfo);
+    const div = document.createElement('div');
+    const btn = document.createElement('button');
+    
+    div.className='.book'
+    btn.className='.rmv';
+
+    div.dataset.id=last.id;
+    btn.dataset.id=last.id;
+
+    btn.textContent='-';
+
+    shelf.append(div);
+
+    div.append(bookInfo);
+    div.append(btn);
 }
+
 
 function addForm(){
     const form = document.createElement('div');
