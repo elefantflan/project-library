@@ -1,15 +1,12 @@
 const library = document.querySelector('.library');
 const shelf = document.querySelector('.shelf');
 const addBook = document.querySelector('.new');
-const deleteBook = document.querySelector('.delete');
 
 const myBooks = [];
 
-<<<<<<< HEAD
+
 function Book(title, author, page, id) {
-=======
 function Book(title, author, page) {
->>>>>>> parent of dacf8a3 (sex)
     this.title=title;
     this.author=author;
     this.page=page;
@@ -38,8 +35,6 @@ let inputBook = addBook.addEventListener("click",(title, author, page)=>{
     this.info = function(){
         return `Title: ${this.title} ` + `Author: ${this.author} ` + `Page: ${this.page}`;
     }
-
-<<<<<<< HEAD
         const newDiv=document.createElement('div');
         newDiv.className="book";
         newDiv.dataset.id=uniqueID;
@@ -153,7 +148,6 @@ console.log(titleList)
 const authorList =myBooks.map(book=>book.author);
 console.log(authorList)
 const appendID = myBooks.forEach(book=>book.id );
-=======
     let div=document.createElement('div');
     div.textContent = newBook.info();
     shelf.appendChild(div);
