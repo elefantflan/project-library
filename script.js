@@ -118,3 +118,11 @@ function addForm(){
 addBook.addEventListener('click',()=>{
     addNewBooks();
 })
+
+// remove book
+const deleteBtns = document.querySelectorAll('.rmv')
+deleteBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        this.parentElement.remove()
+    })
+})

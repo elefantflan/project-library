@@ -28,9 +28,9 @@ function addExampleBooks(){
         const div = document.createElement('div');
         const btn = document.createElement('button')
         
-        div.className='.book'
+        div.className='book'
 
-        btn.className='.rmv';
+        btn.className='rmv';
         btn.textContent='-';
         
         const info = myBooks[i].info();
@@ -54,13 +54,16 @@ function addNewBooks(){
     const div = document.createElement('div');
     const btn = document.createElement('button');
     
-    div.className='.book'
-    btn.className='.rmv';
+    div.className='book'
+    btn.className='rmv';
 
     div.dataset.id=last.id;
     btn.dataset.id=last.id;
 
     btn.textContent='-';
+    btn.addEventListener('click', function(){
+        this.closest('.book').remove();
+    })
 
     shelf.append(div);
 
@@ -124,5 +127,8 @@ addBook.addEventListener('click',()=>{
 })
 
 // remove books
-// button id matches array id
-// remove array
+const deleteBtns = document.querySelectorAll('.rmv').forEach(btn=>{
+    btn.addEventListener('click',function(){
+        this.closest('.book').remove();
+    })
+})
